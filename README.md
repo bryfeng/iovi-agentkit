@@ -93,6 +93,16 @@ node dist/cli.js --sandbox payment transfer \
   --verify local
 ```
 
+Discover AMM-ready market assets:
+
+```bash
+node dist/cli.js --sandbox marketplace assets --capability amm_asset_movements
+```
+
+Registered Payment SL assets are transferable inside Payment SL. Marketplace
+swaps additionally require bundle-bound pool movements and a marketplace
+verifier checkpoint for that Payment SL lane.
+
 ## Custody Modes
 
 The first Payment workflow supports the current sandbox auth model and labels it

@@ -141,6 +141,26 @@ export type QuoteExactIn = {
   fee_bps: number;
 };
 
+export type MarketAssetRecord = {
+  ref: AssetRef;
+  asset: {
+    asset_id: string;
+    symbol?: string;
+    name?: string;
+    metadata?: Record<string, unknown>;
+    require_allowlist?: boolean;
+  };
+  state_hash?: string;
+  sequence?: number;
+  source?: {
+    type?: string;
+    framework?: string;
+    url?: string;
+  };
+  capabilities?: string[];
+  market_status?: string;
+};
+
 export type CustodyMode = 'sandbox-vk' | 'local-key' | 'remote-poster' | 'watch-only';
 
 export type VerificationMode = 'local' | 'devnet' | 'none';

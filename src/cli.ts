@@ -114,6 +114,14 @@ async function main(): Promise<void> {
     return;
   }
 
+  if (scope === 'marketplace' && action === 'assets') {
+    const receipt = await kit.marketplaceWorkflow.discoverAssets({
+      capability: stringFlag(parsed.flags, 'capability')
+    });
+    await printJson(receipt);
+    return;
+  }
+
   throw new Error(`unknown command: ${parsed.command.join(' ')}`);
 }
 
@@ -254,6 +262,7 @@ Usage:
   iovi payment mint --sl-id a9bca654 --to <address> --amount 100 --verify local
   iovi payment transfer --sl-id a9bca654 --from <address> --to <address> --amount 1 --vk <vk> --verify local
   iovi payment batch --sl-id a9bca654 --verify devnet
+  iovi marketplace assets --capability amm_asset_movements
   iovi marketplace quote-exact-in --pool-id pool-stock-usd --input-sl-id 00020002 --input-asset-id USD --amount-in 1000
 
 Service flags:

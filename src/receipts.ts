@@ -28,6 +28,7 @@ export type ReceiptEvidence = {
     accepted?: boolean;
     source?: string | null;
   };
+  assets?: Record<string, JsonValue>[];
   quote?: Record<string, JsonValue>;
 };
 

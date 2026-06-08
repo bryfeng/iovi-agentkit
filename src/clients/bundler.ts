@@ -1,5 +1,5 @@
 import { HttpClient, queryString } from '../http.js';
-import type { AssetRef, QuoteExactIn } from '../types.js';
+import type { AssetRef, MarketAssetRecord, QuoteExactIn } from '../types.js';
 
 export type SwapExactInInput = {
   poolId: string;
@@ -26,7 +26,7 @@ export class BundlerClient {
     return this.http.get('/health');
   }
 
-  assets(): Promise<Record<string, unknown>> {
+  assets(): Promise<{ assets: MarketAssetRecord[] }> {
     return this.http.get('/assets');
   }
 
